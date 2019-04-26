@@ -9,8 +9,11 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "@types/highlight.js": "^9.12.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-highlight.js": "^1.0.7",
+    "react-syntax-highlighter": "^10.2.1",
     "react-transition-group": "^4.0.0"
   },
   "devDependencies": {
@@ -32,7 +35,7 @@
     "tslint": "^5.12.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^3.6.0",
-    "umi": "^2.6.1",
+    "umi": "^2.6.16",
     "umi-plugin-react": "^1.6.0",
     "umi-types": "^0.2.0"
   },

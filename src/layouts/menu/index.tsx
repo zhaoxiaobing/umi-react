@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.less'
+import { Link } from "umi";
 
 interface IProps {
 
@@ -16,7 +17,11 @@ class MenuLayout extends React.Component <IProps, IState> {
         return(
             <div className="menuList">
                 <a href="javascript:void(0)" id="logo"><b>Admin</b>LTE</a>
-                menu
+                <ul>
+                    <li>
+                        <Link to="/">TypeScript</Link>
+                    </li>
+                </ul>
             </div>
         )
     }

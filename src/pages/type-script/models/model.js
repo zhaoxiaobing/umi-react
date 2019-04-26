@@ -1,6 +1,15 @@
 export default {
     namespace: 'typeScript',
     state: {
-        abc:123
+        abc: 'I am typeScript models'
+    },
+    subscriptions: {
+
+    },
+    effect: {
+
+    },
+    reducers: {
+
     }
 }
