@@ -1,52 +1,61 @@
 import React from 'react'
 import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css'
+import 'highlight.js/styles/vs.css'
+import './index.less'
 
-hljs.configure({
-    tabReplace: '',
-    //classPrefix: ''
-});
 //hljs.initHighlighting()
-
 interface IProps {
-
+    hhh: string
 }
 interface IState {
-
-}
-interface IRefs {
-
+    hhh: number
 }
 
-class HighLight extends React.Component<IProps, IState, IRefs>{
-    public state = {
-        code: `import React from 'react';
-                export default function() {
-                    return (
-                        <div>
-                            <h2>I am type-script list.</h2>
-                        </div>
-                    );
-            }`
+class HighLight extends React.Component<IProps,IState>{
+    static props:IProps = {
+        hhh: 'true'
+    };
+    static state:IState = {
+        hhh: 123
+    };
+    constructor(props:IProps, state:IState){
+        super(props, state);
+        //console.log(props, this.props,state);
+
+        let code = props.children.match(/.+\n/g),
+            l = code[0].match(/\s+/g)[0].length;
+        code = code.map(v => v.replace(new RegExp("^\\s{"+l+"}"),'    '));
+        code.push('\n');
+        code.shift('\n');
+        this.state = {
+            code
+        };
     }
     public componentDidMount(): void {
-        //console.log(1)
-        hljs.initHighlightingOnLoad()
+        hljs.initHighlightingOnLoad();
     }
     public componentDidUpdate (): void {
-        //console.log(2)
         //hljs.initHighlighting.called = false
-        hljs.initHighlightingOnLoad()
+        /*hljs.configure({
+            tabReplace: '    ',
+            classPrefix: ''
+        });*/
+        //hljs.initHighlightingOnLoad()
+        //hljs.highlightBlock(this.node)
+    }
+    public componentWillUpdate(): void {
+
     }
     public render(){
-        //console.log(0)
-        {/*{this.props.children}*/}
         return(
-            <pre>
-                <code className="hljs javascript">
-                    {this.state.code}
-                </code>
-            </pre>
+            <div className="codeBeautiful">
+                {/*<pre ref={(node) => this.node = node}>*/}
+                <pre>
+                    <code className="hljs typescript">
+                        {this.state.code}
+                    </code>
+                </pre>
+            </div>
         )
     }
 }
